@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="WebBasics:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="42026725-be2b-4412-afc7-81f0b7d55de5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/WebBasics.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/IUserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/filter/CharsetFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/filter/DbCheckFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/filter/FormsFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ConfigListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/RouterModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ServiceModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/model/AboutModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/model/FormsModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/model/UserModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/service/DbService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/service/HashService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/service/LocalDbService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/service/MD5HashService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/AboutServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/FormsServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/HomeServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/UserRegisterServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/step/learning/model/AboutModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/step/learning/model/FormsModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/about.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/form.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/forms.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/no-db.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/reg-user.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web_old.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/hello.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2Lh6TnIHw0yN8bmYoIeUlZQaKQU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ACTIVE_CLOUD_PROJECT_ACCOUNT&quot;: &quot;denniksam@gmail.com&quot;,
+    &quot;ACTIVE_CLOUD_PROJECT_ID&quot;: &quot;prostir-287218&quot;,
+    &quot;ACTIVE_CLOUD_PROJECT_NAME&quot;: &quot;prostir&quot;,
+    &quot;ACTIVE_CLOUD_PROJECT_NUMBER&quot;: &quot;245223160931&quot;,
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.google.cloudcode.ide_session_index&quot;: &quot;20230220_0001&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/_dns_/source/repos/Java-011/WebBasics/src/main/webapp/WEB-INF&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\_dns_\source\repos\Java-011\WebBasics\src\main\webapp\WEB-INF" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\96205\Desktop\Files\WebJava\WebBasics\src\main\webapp\WEB-INF" />
+      <recent name="C:\Users\96205\Desktop\Files\WebJava\WebBasics\src\main\webapp" />
+      <recent name="C:\Users\_dns_\source\repos\Java-011\WebBasics\src\main\webapp\WEB-INF" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Tomcat 8.5.77">
+    <configuration name="Google Cloud Debug" type="GCPDebug" factoryName="GCPDebug">
+      <method v="2" />
+    </configuration>
+    <configuration name="WildFly 22" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss/WildFly 22.0.0.Final" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="WebBasics:war exploded">
+          <settings />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="SERVER" />
+        <option name="BINDING_SET_NAME" value="" />
+        <option name="DOMAIN" value="false" />
+        <option name="SERVER_GROUP" />
+        <option name="USERNAME" value="" />
+        <option name="CREDENTIAL_ALIAS" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="JBoss" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="57996" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="WebBasics:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="Tomcat 8.5.77" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.77" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="redeploy-artifacts" />
+      <deployment>
+        <artifact name="WebBasics:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/WebBasics" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="406ffe46-cc35-405d-8bf2-a3a8ace0508a" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="57131" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="WebBasics:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="Google App Engine Deployment" type="gcp-app-engine-deploy" factoryName="Google App Engine Deployment" server-name="Google App Engine">
+      <method v="2" />
+    </configuration>
+    <configuration name="Unnamed" type="gcp-app-engine-deploy" factoryName="Google App Engine Deployment">
+      <deployment type="appengine-artifact-source" name="WebBasics:war exploded" project="prostir-287218" version="auto">
+        <settings cloudProjectName="prostir-287218" environment="APP_ENGINE_STANDARD" googleUsername="denniksam@gmail.com" version="" />
+      </deployment>
+      <method v="2">
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="WebBasics:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="gcp-app-engine-local-run" factoryName="Local" APPLICATION_SERVER_NAME="Google App Engine Standard Local Server" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <server-settings>
+        <artifact>WebBasics:war exploded</artifact>
+      </server-settings>
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="57124" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="WebBasics:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JBoss/WildFly Server.WildFly 22" />
+      <item itemvalue="Tomcat Server.Tomcat 8.5.77" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="42026725-be2b-4412-afc7-81f0b7d55de5" name="Changes" comment="" />
+      <created>1676310977626</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676310977626</updated>
+      <workItem from="1676310978745" duration="3563000" />
+      <workItem from="1676315424201" duration="1274000" />
+      <workItem from="1676385219127" duration="186000" />
+      <workItem from="1676475737940" duration="10662000" />
+      <workItem from="1676649486042" duration="10214000" />
+      <workItem from="1676908872069" duration="10594000" />
+      <workItem from="1677047790716" duration="5096000" />
+      <workItem from="1677082126159" duration="9604000" />
+      <workItem from="1677224511465" duration="4391000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/itstep/learning/servlet/FormsServlet.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
