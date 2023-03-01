@@ -42,21 +42,37 @@ public class UserDao implements IUserDao { // Data Access Object for entity.User
     public boolean add(@Nonnull UserModel model) {
         String salt = hashService.getHexHash( System.nanoTime() + "");
         String hash = getPassHash(model.getPass1(), salt);
-        String sql = "INSERT INTO users(`id`, `login`, `name`, `salt`, `pass`, `email`)"
-                + " VALUES(UUID(), ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO users(`id`, `login`, `name`, `salt`, `pass`, `email`, `avatar`)"
+                + " VALUES(UUID(), ?, ?, ?, ?, ?, ?)";
         try(PreparedStatement prep = dbService.getConnection().prepareStatement(sql)) {
             prep.setString(1, model.getLogin());
             prep.setString(2, model.getName());
             prep.setString(3, salt);
             prep.setString(4, hash);
             prep.setString(5, model.getEmail());
+            prep.setString(6, model.getAvatar());
             prep.execute();
+            return true;
         }
         catch (Exception ex) {
             System.err.println("UserDao::add" + ex.getMessage());
             return false;
         }
-        return true;
+    }
+
+    public User getUser(String login, String password) {
+        String sql = "SELECT * FROM users WHERE login = ? AND pass = ?";
+        try(PreparedStatement prep = dbService.getConnection().prepareStatement(sql)) {
+            prep.setString(1, login);
+            prep.setString(2, password);
+            ResultSet res =  prep.executeQuery();
+            if(res.next())
+                return new User(res);
+        }
+        catch (Exception ex) {
+            System.err.println("UserDao::add" + ex.getMessage());
+        }
+        return null;
     }
 
     private String getPassHash( String password, String salt) {

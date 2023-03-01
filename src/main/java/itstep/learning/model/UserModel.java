@@ -6,6 +6,15 @@ public class UserModel {
     private String pass2;
     private String name;
     private String email;
+    private String avatar;
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
 
     // region getters setters
     public String getLogin() {

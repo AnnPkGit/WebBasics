@@ -12,7 +12,9 @@ import java.io.IOException;
 public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().print("<h1>Home Servlet</h1>");
+        //resp.getWriter().print("<h1>Home Servlet</h1>");
+        req.setAttribute("viewName", "index");
+        req.getRequestDispatcher("WEB-INF/_layout.jsp").forward(req, resp);
     }
 
 }
