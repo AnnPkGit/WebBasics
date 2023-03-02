@@ -1,6 +1,7 @@
 package itstep.learning.ioc;
 
 import com.google.inject.servlet.ServletModule;
+import itstep.learning.filter.AuthFilter;
 import itstep.learning.filter.CharsetFilter;
 import itstep.learning.filter.DbCheckFilter;
 import itstep.learning.filter.FormsFilter;
@@ -13,6 +14,7 @@ public class RouterModule extends ServletModule {
         filter( "/*" ).through( CharsetFilter.class ) ;
         filter( "/*" ).through( FormsFilter.class ) ;
         filter( "/*" ).through( DbCheckFilter.class ) ;
+        filter( "/*" ).through( AuthFilter.class ) ;
 
         // и сервлеты
         serve( "/"  ).with( HomeServlet.class  ) ;

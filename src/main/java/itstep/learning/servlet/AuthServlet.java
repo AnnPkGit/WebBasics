@@ -29,9 +29,13 @@ public class AuthServlet extends HttpServlet {
             resp.getWriter().print("NO");
         }
         else {
-            resp.getWriter().print("OK");
-            User user = userDao.getUser("bob", "f29bc698a9bc0810e1248686d55a1803");
-            System.out.println(user.toString());
+            User user = userDao.getUserByCresentials(authLogin, authPass);
+            if(user != null) {
+                req.getSession().setAttribute("authUser", user);
+                resp.getWriter().print("OK");
+                return;
+            }
+            resp.getWriter().print("NO");
         }
     }
 }

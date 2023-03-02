@@ -9,5 +9,5 @@ import java.util.List;
 public interface IUserDao {
     List<User> getAll();
     boolean add(@Nonnull UserModel model);
-    User getUser(String login, String password);
+    User getUserByCresentials(String login, String password);
 }
