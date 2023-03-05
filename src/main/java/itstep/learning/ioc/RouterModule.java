@@ -14,7 +14,9 @@ public class RouterModule extends ServletModule {
         filter( "/*" ).through( CharsetFilter.class ) ;
         filter( "/*" ).through( FormsFilter.class ) ;
         filter( "/*" ).through( DbCheckFilter.class ) ;
+
         filter( "/*" ).through( AuthFilter.class ) ;
+        //filterRegex("^/(?!image/.*).*$").through(AuthFilter.class);
 
         // и сервлеты
         serve( "/"  ).with( HomeServlet.class  ) ;
@@ -23,5 +25,6 @@ public class RouterModule extends ServletModule {
         serve( "/about" ).with( AboutServlet.class ) ;
         serve( "/register" ).with( UserRegisterServlet.class ) ;
         serve( "/auth" ).with( AuthServlet.class ) ;
+        serve( "/image/*" ).with( DownloadServlet.class ) ;
     }
 }

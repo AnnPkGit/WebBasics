@@ -22,6 +22,7 @@ public class AuthFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
          HttpServletRequest request = (HttpServletRequest) servletRequest;
+         System.out.println("Auth filter");
          if(servletRequest.getParameter("logout") != null) {
              authService.logout(request);
              HttpServletResponse response = (HttpServletResponse) servletResponse;
