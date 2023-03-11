@@ -10,4 +10,10 @@ public interface IUserDao {
     List<User> getAll();
     boolean add(@Nonnull UserModel model);
     User getUserByCresentials(String login, String password);
+
+    User getUserByLogin(String login);
+
+    User getUserProfile(String login);
+
+    boolean updateName(User user);
 }

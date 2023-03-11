@@ -6,7 +6,7 @@
     String contextPath = request.getContextPath() ;
     String viewName = (String) request.getAttribute( "viewName" ) ;
     if( viewName == null ) viewName = "index" ;
-    String viewPage = viewName + ".jsp" ;
+    String viewPage = "/WEB-INF/" + viewName + ".jsp" ;
     User authUser = (User) request.getAttribute( "authUser" ) ;
 %>
 <!DOCTYPE html>
@@ -18,6 +18,7 @@
     <title>WebBasics</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <link rel="icon" href="<%= contextPath%>/image/logo.png">
 </head>
 <body>
 <%=authUser%>
@@ -28,6 +29,15 @@
                 <div class="col s12">
                     <a href="<%= contextPath %>" class="brand-logo">Web Basics</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+                    <% if( authUser != null ) { %>
+                    <a href="<%= contextPath %>/profile/<%= authUser.getLogin() %>">
+                    <img src="<%= contextPath %>/image/<%= authUser.getAvatar() %>"
+                         class="right"
+                         style="width: 44px; height: 44px; border-radius: 50%; margin-top:10px">
+                    </a>
+                    <% } %>
+
                     <ul class="right hide-on-med-and-down" id="main-menu">
                         <li <%= viewName.equals( "index" ) ? "class='active'" : "" %> ><a href="<%= contextPath %>/home"><i class="material-icons left">home</i>Home</a></li>
                         <li <%= viewName.equals( "reg-user" ) ? "class='active'" : "" %> ><a href="<%= contextPath %>/register"><i class="material-icons left">person</i>Registration</a></li>
@@ -35,7 +45,7 @@
                         <% if( authUser == null ) { %>
                             <li><a href="#auth-modal" class="waves-effect waves-light modal-trigger"><i class="material-icons left">person_outline</i>Log in</a></li><% }
                         else { %>
-                            <li><a href="?logout"><i class="material-icons left">exit_to_app</i>Log out</a></li>
+                            <li><a href="#log-out-modal" class="waves-effect waves-light modal-trigger"><i class="material-icons left">exit_to_app</i>Log out</a></li>
                         <% } %>
 
                     </ul>
@@ -66,6 +76,7 @@
           <label for="auth-pass">Password</label>
       </div>
         <label id="pass-error" style="color: red"></label>
+        <label id="log-in-error" style="color: red"></label>
     </div>
     <div class="modal-footer">
       <div class="btn" id="auth-button">
@@ -74,19 +85,24 @@
     </div>
   </div>
 
+<div id="log-out-modal" class="modal">
+    <div class="modal-content">
+        <h4>Are you sure you want to log out?</h4>
+    </div>
+    <div class="modal-footer">
+        <a id="cancel-log-out" class="btn"><i class="material-icons left">exit_to_app</i>Cancel</a>
+        <a class="btn" href="?logout"><i class="material-icons left">exit_to_app</i>Log out</a>
+    </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>document.addEventListener('DOMContentLoaded', function() {
   M.Sidenav.init(document.querySelectorAll('#mobile-demo'), { });  // options: https://materializecss.com/sidenav.html#options
   var elems = document.querySelectorAll('.modal');
   var instances = M.Modal.init(elems, {});
+
   document.getElementById("auth-button")
     .addEventListener("click",e => {
-        /* fetch(POST){login,pass} -> /auth                         fetch(login) - challenge(random)
-            ->OK => обновляем страницу (текущую)                     hash(pass+challenge) -> fetch
-            ->NO => выводим сообщение на модальном окне                       ->OK | ->NO
-         */
-        // console.log("click");
-        // setTimeout(()=>{M.Modal.getInstance(document.getElementById("auth-modal")).close();},1000)
         const authLogin = document.getElementById("auth-login").value;
         const authPass = document.getElementById("auth-pass").value;
 
@@ -120,14 +136,21 @@
             },
             body: `auth-login=${authLogin}&auth-pass=${authPass}`
         }).then(r=>r.text()).then(t => {
-            if(t == "OK") window.location = window.location;
-            else console.log(t);
+            const logInError = document.getElementById("log-in-error");
+            if(t == "OK") {
+                logInError.innerHTML = "";
+                window.location = window.location
+            }
+            else {
+                logInError.innerHTML = "Unauthorized";
+            }
         }) ;
     });
+
+  document.getElementById("cancel-log-out")
+      .addEventListener("click", () => {
+          window.location = window.location
+  });
 });</script>
-Д.З. Обеспечить клиентскую валидацию полей (логин и пароль аутентификации),
-     в случае непрохождения - не отправлять данные на сервер
-* Реализовать в UserDao метод получения пользователя по логину и паролю
-** Реализовать схему аутентификации ZNP (с challenge)
 </body>
 </html>

@@ -10,7 +10,8 @@ public class ConfigListener extends GuiceServletContextListener {
         return Guice.createInjector(       // события обработки сайта (до фильтров, до сервлетов).
                 new RouterModule(),        // Внедряется через web.xml и создает Injector -
                 new ServiceModule(),
-                new StringModule()
+                new StringModule(),
+                new LoggerModule()
                                            // точку управления внедрением зависимостей.
         ) ;                                // Традиционно модули разделяют на два (и более) -
     }                                      // отдельно конфигурация фильтров/сервлетов (RouterModule),

@@ -14,15 +14,20 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Singleton
 public class UserDao implements IUserDao { // Data Access Object for entity.User
     private final DbService dbService;
     private final HashService hashService;
+    private final Logger logger;
+
     @Inject
-    public UserDao(DbService dbService, HashService hashService) {
+    public UserDao(DbService dbService, HashService hashService, Logger logger) {
         this.dbService = dbService;
         this.hashService = hashService;
+        this.logger = logger;
     }
 
     public List<User> getAll() {
@@ -78,6 +83,47 @@ public class UserDao implements IUserDao { // Data Access Object for entity.User
             System.err.println("UserDao::add" + ex.getMessage());
         }
         return null;
+    }
+
+    @Override
+    public User getUserByLogin(String login) {
+        String sql = "SELECT * FROM users WHERE login = ?"; //AND pass = ?";
+        try(PreparedStatement prep = dbService.getConnection().prepareStatement(sql)) {
+            prep.setString(1, login);
+            ResultSet res =  prep.executeQuery();
+            if(res.next()) {
+                return new User(res);
+            }
+        }
+        catch (Exception ex) {
+            System.err.println("UserDao::getUserByLogin" + ex.getMessage());
+        }
+        return null;
+    }
+
+    @Override
+    public User getUserProfile(String login) {
+        User user = this.getUserByLogin(login);
+        if(user != null) {
+            user.setPass("");
+            user.setSalt("");
+        }
+        return user;
+    }
+
+    @Override
+    public boolean updateName(User user) {
+        String sql = "UPDATE users u SET u.`name` = ? WHERE u.`id` = ?"; //AND pass = ?";
+        try(PreparedStatement prep = dbService.getConnection().prepareStatement(sql)) {
+            prep.setString(1, user.getName());
+            prep.setString(1, user.getId().toString());
+            prep.executeUpdate();
+            return true;
+        }
+        catch (Exception ex) {
+            logger.log(Level.WARNING, ex.getMessage());
+        }
+        return false;
     }
 
     private String getPassHash( String password, String salt) {

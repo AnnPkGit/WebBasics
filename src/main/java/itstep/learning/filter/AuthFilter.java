@@ -8,11 +8,16 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Singleton
 public class AuthFilter implements Filter {
     @Inject
     IAuthService authService;
+
+    @Inject
+    private Logger logger;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -21,7 +26,8 @@ public class AuthFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-         HttpServletRequest request = (HttpServletRequest) servletRequest;
+         logger.log(Level.WARNING, "warning from AuthFilter");
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
          System.out.println("Auth filter");
          if(servletRequest.getParameter("logout") != null) {
              authService.logout(request);
