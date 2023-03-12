@@ -26,7 +26,12 @@
                             <i class="material-icons">edit</i>
                         </a>
                     </p>
-                    <p>Email: <%= profileUser.getEmail() %></p>
+                    <p>Email:
+                        <b id="user-email"><%= profileUser.getEmail() %></b>
+                        <a id="user-email-btn" class="btn-floating btn-small waves-effect waves-light teal">
+                            <i class="material-icons">edit</i>
+                        </a>
+                    </p>
                     <p>Active from: <%= profileUser.getRegDt() %></p>
                 </div>
                 <div class="card-action">
@@ -39,31 +44,45 @@
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const userNameBtn = document.getElementById("user-name-btn");
-        userNameBtn.addEventListener("click", userNameClick);
+        userNameBtn.addEventListener("click", EditClick("user-name", "userName", userNameBtn.innerText));
+        const userEmailBtn = document.getElementById("user-email-btn");
+        userEmailBtn.addEventListener("click", EditClick("user-email", "userEmail", userNameBtn.innerText));
         const avatarInput = document.getElementById("user-avatar");
         avatarInput.addEventListener('change', avatarChange)
 
     });
-    function userNameClick(e) {
-        const userName = document.getElementById("user-name");
-        if(userName.getAttribute("contenteditable")) {  // завершение редактирования
-            // TODO: проверить, были ли изменения
-            fetch(window.location.href, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: `{"userName": "${userName.innerText}"}`
-            }).then(r => r.text()).then(console.log);
 
-            userName.removeAttribute("contenteditable");
-            e.target.innerHTML = '<i class="material-icons">edit</i>';
+    function EditClick(elementName, elementParam, priviousValue){
+        let func = function userNameClick(e) {
+            const userName = document.getElementById(elementName);
+            if(userName.getAttribute("contenteditable")) {
+
+                if(priviousValue == userName.innerText) {
+                    userName.removeAttribute("contenteditable");
+                    e.target.innerHTML = '<i class="material-icons">edit</i>';
+                    return;
+                }
+                else {
+                    priviousValue = userName.innerText;
+                }
+                fetch(window.location.href, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: `{"${elementParam}": "${userName.innerText}"}`
+                }).then(r => r.text()).then(console.log);
+
+                userName.removeAttribute("contenteditable");
+                e.target.innerHTML = '<i class="material-icons">edit</i>';
+            }
+            else {
+                userName.setAttribute("contenteditable", "true");
+                userName.focus();
+                e.target.innerHTML = '<i class="material-icons">save</i>';
+            }
         }
-        else {
-            userName.setAttribute("contenteditable", "true");
-            userName.focus();
-            e.target.innerHTML = '<i class="material-icons">save</i>';
-        }
+        return func;
     }
 
     function avatarChange(e) {
