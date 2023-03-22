@@ -3,6 +3,7 @@ package itstep.learning.data.dao;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import itstep.learning.data.entity.User;
+import itstep.learning.model.TaskModel;
 import itstep.learning.model.UserModel;
 import itstep.learning.service.DbService;
 import itstep.learning.service.HashService;
@@ -14,6 +15,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -125,6 +127,12 @@ public class UserDao implements IUserDao { // Data Access Object for entity.User
         }
         return false;
     }
+
+    public User getById( Object id )  throws IllegalArgumentException {
+        return _getById( id, false ) ;}
+    private User _getById( Object id, boolean includeCredentials ) throws IllegalArgumentException {    UUID _id = null ;    if( id instanceof User ) {        _id = ( (User) id ).getId() ;    }    else if( id instanceof UUID ) {        _id = (UUID) id ;    }    else if( id instanceof String ) {        try {            _id = UUID.fromString( (String) id ) ;        }        catch(Exception ignored ) {        }    }    if( _id == null ) {        throw new IllegalArgumentException( "Argument 'task' should be Task or UUID or String. Given " + id );    }    String sql = "SELECT u.* FROM users u WHERE u.id = ?" ;    try(PreparedStatement prep = dbService.getConnection().prepareStatement( sql ) ) {        prep.setString( 1, _id.toString() ) ;        ResultSet res = prep.executeQuery() ;        if( res.next() ) {            User user = new User( res ) ;            if( ! includeCredentials ) {                user.setPass( null ) ;                user.setSalt( null ); ;            }            return user ;        }    }    catch(Exception ex )
+    {        logger.log( Level.WARNING, ex.getMessage() ) ;
+    }    return null ;}
 
     private String getPassHash( String password, String salt) {
         return hashService.getHexHash( salt + password );

@@ -9,9 +9,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42026725-be2b-4412-afc7-81f0b7d55de5" name="Changes" comment="checks for extensions">
+    <list default="true" id="42026725-be2b-4412-afc7-81f0b7d55de5" name="Changes" comment="check for changed values email and username">
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/DataContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/StoryDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/TaskDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/TeamDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/Story.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/Task.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/Team.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/model/StoryViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/model/TaskModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/StoryServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ws/WebsocketServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/index-old.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tasks.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/profile-my.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/profile-my.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/IUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/IUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/RouterModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/RouterModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/HomeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/UserProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/UserProfileServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,8 +123,8 @@
       <recent name="C:\Users\_dns_\source\repos\Java-011\WebBasics\src\main\webapp\WEB-INF" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\96205\Desktop\Files\WebJava\WebBasics\target\WebBasics\WEB-INF" />
       <recent name="C:\Users\96205\Desktop\Files\WebJava\WebBasics\src\main\webapp\WEB-INF" />
+      <recent name="C:\Users\96205\Desktop\Files\WebJava\WebBasics\target\WebBasics\WEB-INF" />
       <recent name="C:\Users\96205\Desktop\Files\WebJava\WebBasics\src\main\webapp" />
       <recent name="C:\Users\_dns_\source\repos\Java-011\WebBasics\src\main\webapp\WEB-INF" />
     </key>
@@ -375,7 +396,14 @@
       <workItem from="1678291778926" duration="8484000" />
       <workItem from="1678455331563" duration="11782000" />
       <workItem from="1678519712137" duration="5109000" />
-      <workItem from="1678617993424" duration="2926000" />
+      <workItem from="1678617993424" duration="4076000" />
+      <workItem from="1678868377028" duration="3408000" />
+      <workItem from="1678896314744" duration="9388000" />
+      <workItem from="1679068596827" duration="10004000" />
+      <workItem from="1679327815022" duration="10167000" />
+      <workItem from="1679405140682" duration="5391000" />
+      <workItem from="1679423549062" duration="702000" />
+      <workItem from="1679477737399" duration="422000" />
     </task>
     <task id="LOCAL-00001" summary="add user to reg form">
       <created>1677228992937</created>
@@ -412,7 +440,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678524943316</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="check for changed values email and username">
+      <created>1678621327851</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678621327851</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,7 +472,8 @@
     <MESSAGE value="add user to reg form" />
     <MESSAGE value="added missing layout" />
     <MESSAGE value="checks for extensions" />
-    <option name="LAST_COMMIT_MESSAGE" value="checks for extensions" />
+    <MESSAGE value="check for changed values email and username" />
+    <option name="LAST_COMMIT_MESSAGE" value="check for changed values email and username" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -446,6 +482,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/itstep/learning/servlet/UserProfileServlet.java</url>
           <line>94</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/StoryDao.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

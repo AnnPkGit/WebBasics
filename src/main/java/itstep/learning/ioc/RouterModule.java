@@ -27,5 +27,6 @@ public class RouterModule extends ServletModule {
         serve( "/auth" ).with( AuthServlet.class ) ;
         serve( "/image/*" ).with( DownloadServlet.class ) ;
         serve( "/profile/*" ).with( UserProfileServlet.class ) ;
+        serve( "/story" ).with( StoryServlet.class ) ;
     }
 }

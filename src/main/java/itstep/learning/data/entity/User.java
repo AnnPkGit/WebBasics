@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
-public class User { //ORM
+public class User extends Entity{ //ORM
     private UUID id;
     private String login;
     private String name;
@@ -125,19 +125,14 @@ public class User { //ORM
             setConfirm(res.getString("confirm"));
             setAvatar(res.getString("avatar"));
             setRoleId(res.getString("role_Id"));
-            setRegDt(sqlDateTime.parse(res.getString("reg_dt")));
+            setRegDt(sqlDatetimeFormat.parse(res.getString("reg_dt")));
             String deleteDtString = res.getString("delete_dt");
             if(deleteDtString != null) {
-                setDeleteDt(sqlDateTime.parse(deleteDtString));
+                setDeleteDt(sqlDatetimeFormat.parse(deleteDtString));
             }
         }
         catch (Exception ex) {
             throw new RuntimeException(ex.getMessage());
         }
     }
-
-    //endregion
-
-    private static final SimpleDateFormat sqlDateTime =
-            new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 }

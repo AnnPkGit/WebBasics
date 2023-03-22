@@ -2,15 +2,9 @@
 <%
     String domain = request.getContextPath() ;
 %>
-<html>
-<head>
-    <meta charset="UTF-8" />
-    <title>Java</title>
-</head>
-<body>
 <h2>Java Web</h2>
 <a href="<%=domain%>/forms">Передача данных. Формы</a><br/>
-<a href="<%=domain%>/register">Регистрация</a><br/>
+<a href="<%=domain%>/register">Регистрация пользователя</a><br/>
 <p>
     Сервлеты - разновидность классов, предназначенных для сетевых задач.
     Аналог из ASP - ApiController.
@@ -29,5 +23,3 @@
     логику обработки - только отображение). Основной способ передачи - атрибуты
     запроса
 </p>
-</body>
-</html>

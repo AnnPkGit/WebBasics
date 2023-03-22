@@ -195,4 +195,55 @@ public class UserProfileServlet extends HttpServlet {
         }
         return null;
     }
+    /*
+Команды: пользователи могут состоять в разных командах
+Задачи: задача ставится любым участником команды, вся команда является исполнителем и "видит" чат
+Чат: по кажой задаче свой чат, писать и просматривать могут только участники
+CREATE TABLE `teams` (
+    `id` char(36) NOT NULL COMMENT 'UUID',
+    `name` varchar(64) NOT NULL,
+     PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+CREATE TABLE `teams_users` (
+    `id_team` char(36) NOT NULL,
+    `id_user` char(36) NOT NULL,
+     PRIMARY KEY (`id_team`, `id_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+CREATE TABLE `tasks` (
+    `id` char(36) NOT NULL COMMENT 'UUID',
+    `name` varchar(64) NOT NULL,
+    `status` int DEFAULT 0,
+    `id_user` char(36) NOT NULL COMMENT 'Author',
+    `id_team` char(36) NOT NULL,
+    `created_dt` datetime DEFAULT CURRENT_TIMESTAMP,
+    `deadline` datetime,
+    `priority` TINYINT default 0,
+     PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+CREATE TABLE `stories` (
+    `id` char(36) NOT NULL COMMENT 'UUID',
+    `id_user` char(36) NOT NULL COMMENT 'Author',
+    `id_task` char(36) NOT NULL,
+    `id_reply` char(36) NULL  COMMENT 'Other story id',
+    `content` TEXT NOT NULL,
+    `created_dt` datetime DEFAULT CURRENT_TIMESTAMP,
+     PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+
+INSERT INTO `teams` VALUES( 'd5a875eb-c1c2-11ed-b458-14857fd97497', 'Frontend' ) ;
+INSERT INTO `teams` VALUES( '07094a33-c1c3-11ed-b458-14857fd97497', 'Backend' ) ;
+INSERT INTO `teams` VALUES( '16e22c6e-c1c3-11ed-b458-14857fd97497', 'Design' ) ;
+INSERT INTO `teams_users` VALUES ( 'd5a875eb-c1c2-11ed-b458-14857fd97497', '6c6fe99f-bc3c-11ed-a657-7c10c98d53d5' ) ;
+INSERT INTO `teams_users` VALUES ( '07094a33-c1c3-11ed-b458-14857fd97497', '0aec36d2-b858-11ed-9335-7c10c98d53d5' ) ;
+INSERT INTO `teams_users` VALUES ( '16e22c6e-c1c3-11ed-b458-14857fd97497', '24fd29f1-b6c0-11ed-9335-7c10c98d53d5' ) ;
+
+INSERT INTO `teams` VALUES( '93f372cb-c692-4e5e-95ef-4d212be4ca31', 'DevOps' ) ;
+INSERT INTO `teams` VALUES( 'a59c40fb-bf5f-4075-a118-be14e32f7665', 'HR' ) ;
+INSERT INTO `teams` VALUES( '8a1d9676-a44f-41a3-929c-40cc834c0195', 'Law Department' ) ;
+
+INSERT INTO `teams_users` VALUES ( '93f372cb-c692-4e5e-95ef-4d212be4ca31', '6c6fe99f-bc3c-11ed-a657-7c10c98d53d5' ) ;
+INSERT INTO `teams_users` VALUES ( 'a59c40fb-bf5f-4075-a118-be14e32f7665', '6599eda6-6f48-11ed-aa83-7c10c98d53d5' ) ;
+INSERT INTO `teams_users` VALUES ( '8a1d9676-a44f-41a3-929c-40cc834c0195', '356643c2-7a28-11ed-87dc-7c10c98d53d5' ) ;
+
+ */
 }
