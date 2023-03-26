@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.Console;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.text.ParseException;
@@ -38,9 +39,18 @@ public class StoryServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Story> stories =
-                dataContext.getStoryDao()
-                        .getListByTask( "b28222eb-c35f-11ed-87c8-7c10c98d53d5" ) ;
+        resp.setHeader( "Content-Type", "application/json" ) ;
+        String taskId = req.getParameter("task-id");
+        try {
+            UUID.fromString(taskId);
+        }
+        catch (IllegalArgumentException ignored) {
+            resp.setStatus(400);
+            resp.getWriter().print("\"invalid param task-id\"");
+            return;
+        }
+
+        List<Story> stories = dataContext.getStoryDao().getListByTask( taskId ) ;
         List<StoryViewModel> storyViewModels = new ArrayList<>() ;
         for( Story story : stories )
         {
@@ -51,7 +61,7 @@ public class StoryServlet extends HttpServlet {
             {
                 Story reply = dataContext.getStoryDao().getById( story.getIdReply() ) ;
                 model.setReplyStory( new StoryViewModel(reply, dataContext.getUserDao().getById( reply.getIdUser() ), null) ) ;
-            }    storyViewModels.add( model ) ;}resp.setHeader( "Content-Type", "application/json" ) ;
+            }    storyViewModels.add( model ) ;}
         resp.getWriter().print(  //new Gson().toJson( stories ));
         new GsonBuilder().serializeNulls().create().toJson( storyViewModels )) ;
     }

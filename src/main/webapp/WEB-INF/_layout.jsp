@@ -139,7 +139,8 @@
             const logInError = document.getElementById("log-in-error");
             if(t == "OK") {
                 logInError.innerHTML = "";
-                window.location = window.location
+                window.location = window.location;
+                window.location.reload();
             }
             else {
                 logInError.innerHTML = "Unauthorized";

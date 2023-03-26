@@ -9,30 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42026725-be2b-4412-afc7-81f0b7d55de5" name="Changes" comment="check for changed values email and username">
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/DataContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/StoryDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/TaskDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/TeamDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/Entity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/Story.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/Task.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/Team.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/model/StoryViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/model/TaskModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/StoryServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ws/WebsocketServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/index-old.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tasks.jsp" afterDir="false" />
+    <list default="true" id="42026725-be2b-4412-afc7-81f0b7d55de5" name="Changes" comment="change task look depending on priority">
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/WebSocketModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ws/WebSocketConfigurator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/IUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/IUserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/RouterModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/RouterModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/HomeServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/HomeServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/UserProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/UserProfileServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/StoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/StoryDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ConfigListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ConfigListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/StoryServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/StoryServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/ws/WebsocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ws/WebsocketServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/_layout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/_layout.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tasks.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tasks.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -403,7 +389,10 @@
       <workItem from="1679327815022" duration="10167000" />
       <workItem from="1679405140682" duration="5391000" />
       <workItem from="1679423549062" duration="702000" />
-      <workItem from="1679477737399" duration="422000" />
+      <workItem from="1679477737399" duration="15499000" />
+      <workItem from="1679574575177" duration="4444000" />
+      <workItem from="1679673707023" duration="9415000" />
+      <workItem from="1679817792223" duration="2242000" />
     </task>
     <task id="LOCAL-00001" summary="add user to reg form">
       <created>1677228992937</created>
@@ -447,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678621327851</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="check for changed values email and username">
+      <created>1679478208836</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679478208836</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,7 +469,8 @@
     <MESSAGE value="added missing layout" />
     <MESSAGE value="checks for extensions" />
     <MESSAGE value="check for changed values email and username" />
-    <option name="LAST_COMMIT_MESSAGE" value="check for changed values email and username" />
+    <MESSAGE value="change task look depending on priority" />
+    <option name="LAST_COMMIT_MESSAGE" value="change task look depending on priority" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -482,11 +479,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/itstep/learning/servlet/UserProfileServlet.java</url>
           <line>94</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/StoryDao.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

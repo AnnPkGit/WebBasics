@@ -2,12 +2,27 @@
 <%@ page import="itstep.learning.data.entity.Team" %>
 <%@ page import="java.util.List" %>
 <%@ page import="itstep.learning.data.entity.Task" %>
+<%@ page import="itstep.learning.model.StoryViewModel" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%
     String domain = request.getContextPath() ;
     User authUser = (User) request.getAttribute( "authUser" ) ;
     List<Team> teams = (List<Team>) request.getAttribute( "teams" ) ;
     List<Task> tasks = (List< Task>) request.getAttribute( "tasks" ) ;
+    List<StoryViewModel> stories = (List<StoryViewModel>) request.getAttribute( "stories2" );
+%>
+<%!
+    public String colorByPriority(byte priority ) {
+        switch (priority) {
+            case ((byte)0):
+                return "blue";
+            case ((byte)1):
+                return "green";
+            case ((byte)2):
+                return "red";
+        }
+        return "blue-grey";
+    }
 %>
 <div class="row">
 
@@ -16,8 +31,8 @@
         <% for( Task task : tasks ) { %>
         <div class="row">
             <div class="col">
-                <div class="card blue-grey darken-1">
-                    <div id="<%= task.getId() %>" style="float: right; font-weight: bolder; color: greenyellow; text-align: center; margin: 5px"></div>
+                <div class="card <%= colorByPriority(task.getPriority())%> darken-1">
+                    <div id="<%= task.getId() %>" style="float: right; font-weight: bolder; color: greenyellow; text-align: center; margin: 5px;"></div>
                     <div class="card-content white-text">
                         <span class="card-title"><%= task.getName() %></span>
                         <p><%= task.getCreatedDt() %> -- <%= task.getDeadline() %></p>
@@ -29,15 +44,14 @@
             </div>
         </div>
         <% } %>
+
         <!-- endregion Конец блока задач -->
     </div>
 
     <div class="col s7 m8 l9">
         <!-- region Блок обсуждения (комментариев) -->
-        <p id="chat">
-        </p>
-        <form
-                method="post" id="story-form">
+        <div id="chat"></div>
+        <form method="post" id="story-form">
             <textarea id="textarea1" class="materialize-textarea" name="story-text"></textarea>
             <label for="textarea1">Textarea</label>
             <div class="row input-field right-align">
@@ -45,9 +59,6 @@
             </div>
             <input type="hidden" name="story-id-task" />
         </form>
-
-        <textarea id="textarea2"></textarea>
-        <button onclick="sendClick()">Send</button>
         <!-- endregion Блок обсуждения (комментариев) -->
     </div>
 
@@ -87,17 +98,15 @@
         </div>
         <div class="row input-field right-align">
             <button class="btn waves-effect waves-teal" type="submit">создать<i class="material-icons right">add</i></button>
+            <label style="color: red; font-weight: bolder" id="task-add-error"></label>
         </div>
     </form>
 </div>
 <!-- endregion -->
 
-Д.З. Разработать метод передачи ID задачи в websocket-сообщении
-При получении websocket-сообщения проверять ID задачи:
-- если эта задача открыта в обсуждении, то выводить новое сообщение в чат
-- если открыта другая задача, то добавлять символ/стиль нового сообщения в задаче
-
 <script>
+    const tpl = "<div><i>{{moment}}</i>&emsp;<b>{{user}}</b>&emsp;<span>{{content}}</span></div>" ;
+
     document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('select');
         var instances = M.FormSelect.init(elems, {});
@@ -125,29 +134,30 @@
         // console.log( "onWsOpen", e ) ;
     }
     function onWsMessage( e ) {
-        // console.log( "onWsMessage", e.data ) ;
-        let index = e.data.lastIndexOf("|id:");
-        let taskId = e.data.substring(index + 4);
-        //
-        let curentIndex = window.location.href.lastIndexOf('#');
-        let curentTaskId = window.location.href.substring(curentIndex + 1);
-
-        if(taskId == curentTaskId) {
-            let text = e.data.substring(0, index);
-            const chat = document.getElementById("chat");
-            chat.innerText += text + '\n\n';
-            document.getElementById("textarea2").value = "";
+        let msg = JSON.parse(e.data);
+        if(typeof msg.status !== 'undefined') {
+            alert("Message was not sent");
         }
         else {
-            if(document.getElementById(taskId).innerText != "") {
-                let num = parseInt(document.getElementById(taskId).innerText);
-                document.getElementById(taskId).innerText = num + 1;
+            const taskId = window.location.hash.substring(1) ;
+            console.log(taskId + " taskId");
+            console.log(msg.story.id + " story.id");
+            if(msg.story.idTask == taskId) {
+                const chat = document.getElementById("chat");
+                const html = htmlFromStoryModel(msg);
+                chat.insertAdjacentHTML("afterend", html);
             }
             else {
-                document.getElementById(taskId).innerText = 1;
+                if(document.getElementById(msg.story.idTask).innerText == '') {
+                    document.getElementById(msg.story.idTask).innerText = '1';
+                    return;
+                }
+                let num = parseInt(document.getElementById(msg.story.idTask).innerText);
+                document.getElementById(msg.story.idTask).innerText = num + 1;
             }
         }
     }
+
     function onWsClose( e ) {
         // console.log( "onWsClose", e ) ;
     }
@@ -171,10 +181,38 @@
         }).then( r=> r.text() )
             .then( t => {
                 console.log(t);
-                if(t === "OK") window.location.reload() ;
-            } ) ;
+                let error = document.getElementById("task-add-error");
+                if(t === "OK") {
+                    error.innerText = '';
+                    window.location.reload() ;
+                }
+                else {
+                    error.innerText = t;
+                }
+            } ) ;           
     }
     function sendStoryForm() {
+        if(!window.websocket) throw `websocket not innit`;
+        const storyIdTask = document.querySelector(`input[name="story-id-task"]`);
+        if(!storyIdTask) throw `input[name="story-id-task"] not found`;
+        const taskId = storyIdTask.value;
+
+
+        const textarea = document.getElementById(`textarea1`);
+        if(!textarea ) throw `input[name="story-id-task"] not found`;
+        const storyMessage = textarea .value;
+
+
+        window.websocket.send(
+            JSON.stringify(
+                {
+                    taskId: taskId,
+                    content:  storyMessage
+                }));
+        textarea.value = "";
+    }
+
+    function sendStoryFormHtpp() {
         fetch( '<%= domain + "/story" %>', {
             method: "POST",
             headers: {
@@ -186,8 +224,25 @@
     }
     window.addEventListener('hashchange', () => {
         const taskId = window.location.hash.substring(1) ;
+        document.getElementById(taskId).innerText = '';
         if( ! /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/.test(taskId)) return ;
         document.querySelector('input[name="story-id-task"]').value = taskId ;
         console.log(taskId) ;
+        fetch( "<%= domain %>/story?task-id=" + taskId )
+            .then( r => r.json() )
+            .then( j => {
+                const chat = document.getElementById("chat");
+                let chatHtml = "" ;
+                for( let model of j ) {
+                    chatHtml += htmlFromStoryModel(model);
+                }
+                chat.innerHTML = chatHtml ;
+            });
     });
+
+    function htmlFromStoryModel( model ) {
+        return tpl.replace( "{{moment}}",  model.story.createdDt )
+                  .replace( "{{user}}",    model.user.name )
+                  .replace( "{{content}}", model.story.content ) ;
+    }
 </script>
