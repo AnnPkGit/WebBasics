@@ -10,6 +10,7 @@ import itstep.learning.service.DbService;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -50,8 +51,13 @@ public class StoryDao {
 
     public Story create(Story story) {
         story.setId(UUID.randomUUID());
-        ZonedDateTime zonedDateTime = ZonedDateTime.now(ZoneOffset.UTC) ;
-        story.setCreatedDt(Date.from( zonedDateTime.toInstant()));
+        ZonedDateTime zonedDateTime = ZonedDateTime.now( ZoneOffset.UTC ) ;
+        try {
+            story.setCreatedDt(
+                    Entity.Iso8601DatetimeFormat.parse(
+                            ZonedDateTime.now(ZoneOffset.UTC).toString()) );
+        }
+        catch( Exception ignored ) { }
 
         String sql = "INSERT INTO `stories` (`id`,`id_user`,`id_task`,`id_reply`,`content`,`created_dt`) "
                 + "VALUES( ?, ?, ?, ?, ?, ?) ";

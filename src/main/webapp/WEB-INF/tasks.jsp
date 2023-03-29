@@ -24,6 +24,8 @@
         return "blue-grey";
     }
 %>
+<button onclick="testEmail()">TEST EMAIL</button>
+<div id="preloader"></div>
 <div class="row">
 
     <div class="col s5 m4 l3">
@@ -105,6 +107,14 @@
 <!-- endregion -->
 
 <script>
+    function testEmail() {
+        preloader.innerHTML = "Wait...";
+        fetch( '<%= domain + "/story" %>',
+            {
+                method: 'PUT'
+            }).then(r => r.text())
+            .then( t => {console.log(t);  preloader.innerHTML = "";});
+    }
     const tpl = "<div><i>{{moment}}</i>&emsp;<b>{{user}}</b>&emsp;<span>{{content}}</span></div>" ;
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -228,11 +238,12 @@
         if( ! /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/.test(taskId)) return ;
         document.querySelector('input[name="story-id-task"]').value = taskId ;
         console.log(taskId) ;
-        fetch( "<%= domain %>/story?task-id=" + taskId )
+        fetch( "<%= domain %>/story?task-id=" + taskId)
             .then( r => r.json() )
             .then( j => {
                 const chat = document.getElementById("chat");
                 let chatHtml = "" ;
+                j = j.sort((a, b) => Date.parse(a.story.createdDt) - Date.parse(b.story.createdDt));
                 for( let model of j ) {
                     chatHtml += htmlFromStoryModel(model);
                 }
@@ -241,8 +252,16 @@
     });
 
     function htmlFromStoryModel( model ) {
-        return tpl.replace( "{{moment}}",  model.story.createdDt )
+        return tpl.replace( "{{moment}}",  utcDateToString(model.story.createdDt) )
                   .replace( "{{user}}",    model.user.name )
                   .replace( "{{content}}", model.story.content ) ;
+    }
+    function utcDateToString(date) {
+        let dt = new Date(date + " UTC");
+        let now = new Date();
+        if(dt.toString() === now.toDateString()) {
+            return dt.getTime().toString();
+        }
+        return dt.toDateString() + ' ' + dt.getHours().toString() + ':' + dt.getMinutes().toString();
     }
 </script>

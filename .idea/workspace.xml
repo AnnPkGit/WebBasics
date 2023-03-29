@@ -9,15 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42026725-be2b-4412-afc7-81f0b7d55de5" name="Changes" comment="change task look depending on priority">
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/WebSocketModule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ws/WebSocketConfigurator.java" afterDir="false" />
+    <list default="true" id="42026725-be2b-4412-afc7-81f0b7d55de5" name="Changes" comment="messages notifications added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/StoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/StoryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ConfigListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ioc/ConfigListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/model/StoryViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/model/StoryViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/StoryServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/StoryServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/ws/WebsocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/ws/WebsocketServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/_layout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/_layout.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tasks.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tasks.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -392,7 +390,8 @@
       <workItem from="1679477737399" duration="15499000" />
       <workItem from="1679574575177" duration="4444000" />
       <workItem from="1679673707023" duration="9415000" />
-      <workItem from="1679817792223" duration="2242000" />
+      <workItem from="1679817792223" duration="6229000" />
+      <workItem from="1679929137081" duration="8457000" />
     </task>
     <task id="LOCAL-00001" summary="add user to reg form">
       <created>1677228992937</created>
@@ -443,7 +442,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679478208836</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="messages notifications added">
+      <created>1679820067721</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679820067721</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -470,7 +476,8 @@
     <MESSAGE value="checks for extensions" />
     <MESSAGE value="check for changed values email and username" />
     <MESSAGE value="change task look depending on priority" />
-    <option name="LAST_COMMIT_MESSAGE" value="change task look depending on priority" />
+    <MESSAGE value="messages notifications added" />
+    <option name="LAST_COMMIT_MESSAGE" value="messages notifications added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
