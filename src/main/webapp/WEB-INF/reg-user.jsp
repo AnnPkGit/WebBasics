@@ -37,9 +37,6 @@
             width: 25%;
         }
     }
-    body{
-        background: #2b2b2b;
-    }
     label{
         color: #898a86;
     }
@@ -133,21 +130,6 @@
                 <input id="ava" class="form-control col" type="file" id="avatar" name="user-avatar" accept="image/png, image/jpeg"/>
                 <span class="col-auto text-danger"></span>
             </div>
-        </div>
-        <div class="column text-center mt-2">
-            <small>Do not use any of these common illegal symbols in fields: </small>
-            <small>
-                <span class="text-warning">}</span>,
-                <span class="text-warning">`</span>,
-                <span class="text-warning">'</span>,
-                <span class="text-warning">"</span>
-            </small>
-            <br>
-            <small id="emailHelp">
-                Fields marked with
-                <span class="text-danger">!</span>
-                are required
-            </small>
         </div>
         <div class="text-center mt-2">
             <button type="submit" class="btn btn-outline-info mb-2">Registration</button>

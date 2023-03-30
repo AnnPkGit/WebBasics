@@ -24,7 +24,10 @@
         return "blue-grey";
     }
 %>
-<button onclick="testEmail()">TEST EMAIL</button>
+<div style="padding: 10px;">
+<button onclick="testEmail()"  class="btn waves-effect waves-teal">TEST EMAIL</button>
+</div>
+
 <div id="preloader"></div>
 <div class="row">
 
@@ -115,7 +118,7 @@
             }).then(r => r.text())
             .then( t => {console.log(t);  preloader.innerHTML = "";});
     }
-    const tpl = "<div><i>{{moment}}</i>&emsp;<b>{{user}}</b>&emsp;<span>{{content}}</span></div>" ;
+    const tpl = "<div style=\" border-radius: 25px;background: #DBDBDB;padding: 5px; margin: 10px; width: auto;\"><i>{{moment}}</i>&emsp;<b>{{user}}</b>&emsp;<span>{{content}}</span></div>" ;
 
     document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('select');

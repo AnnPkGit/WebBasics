@@ -25,7 +25,6 @@ public class DownloadServlet extends HttpServlet {
         File file = new File( path, requestedFile ) ;
         if( file.isFile() && file.canRead() ) {
             String mimeType = Files.probeContentType( file.toPath() ) ;
-            // проверка типа файла на изображение
             if( ! mimeType.startsWith( "image" ) ) {
                 resp.setStatus( 415 ) ;
                 resp.getWriter().print( "Unsupported Media Type: " + mimeType ) ;
@@ -34,10 +33,6 @@ public class DownloadServlet extends HttpServlet {
 
             resp.setContentType( mimeType ) ;
 
-            // resp.setContentType( "application/octet-stream" ) ;
-            // resp.setHeader( "Content-Disposition", "attachment; filename=\"download.jpg\"" ) ;
-
-            // piping - передача данных из одного потока в другой
             byte[] buf = new byte[1024] ;
             try( InputStream  reader = Files.newInputStream( file.toPath() ) ;
                  OutputStream writer = resp.getOutputStream() ) {

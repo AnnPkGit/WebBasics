@@ -9,13 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42026725-be2b-4412-afc7-81f0b7d55de5" name="Changes" comment="messages notifications added">
+    <list default="true" id="42026725-be2b-4412-afc7-81f0b7d55de5" name="Changes" comment="added time sort">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/StoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/dao/StoryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/data/entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/model/StoryViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/model/StoryViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/StoryServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/StoryServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/DownloadServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/itstep/learning/servlet/DownloadServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/profile-my.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/profile-my.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/reg-user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/reg-user.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tasks.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tasks.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -392,6 +390,9 @@
       <workItem from="1679673707023" duration="9415000" />
       <workItem from="1679817792223" duration="6229000" />
       <workItem from="1679929137081" duration="8457000" />
+      <workItem from="1680073261099" duration="1119000" />
+      <workItem from="1680160820844" duration="508000" />
+      <workItem from="1680161347857" duration="1725000" />
     </task>
     <task id="LOCAL-00001" summary="add user to reg form">
       <created>1677228992937</created>
@@ -449,7 +450,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679820067721</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added time sort">
+      <created>1680073409212</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680073409212</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -477,7 +485,8 @@
     <MESSAGE value="check for changed values email and username" />
     <MESSAGE value="change task look depending on priority" />
     <MESSAGE value="messages notifications added" />
-    <option name="LAST_COMMIT_MESSAGE" value="messages notifications added" />
+    <MESSAGE value="added time sort" />
+    <option name="LAST_COMMIT_MESSAGE" value="added time sort" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
